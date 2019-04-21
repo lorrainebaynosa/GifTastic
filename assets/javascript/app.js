@@ -36,6 +36,7 @@ renderButtons();
 
 // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
 // Event listener for all button elements
+function renderAjax() {
 $("button").on("click", function () {
   $("#gifs-appear-here").empty();
   // In this case, the "this" keyword refers to the button that was clicked
@@ -67,8 +68,8 @@ $("button").on("click", function () {
         var sportsImage = $("<img>");
         // Giving the image tag an src attribute of a property pulled off the
         // result item
-        // Adding a class of gif to our image
-        sportsImage.addClass("gif");
+        sportsImage.addClass("sports");
+        // Adding a data-attribute
         sportsImage.attr("src", results[i].images.fixed_height_still.url);
         // Appending the paragraph and sportsImage we created to the "gifDiv" div we created
         gifDiv.append(p);
@@ -77,62 +78,35 @@ $("button").on("click", function () {
         $("#gifs-appear-here").prepend(gifDiv);
   // 4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.   
       }
-      $(".gif").on("click", function () {
-        // STEP TWO: make a variable named state and then store the image's data-state into it.
-        // Use the .attr() method for this.
-        // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-        //attr(SET: has (2) arguments): .attr(" ", " ");
-        //attr(GET has 1 argument); .attr("");
-        var state = $(this).attr("data-state", "still");
-        // If the clicked image's state is still, update its src attribute to what its data-animate value is.
-        // Then, set the image's data-state to animate
-        // Else set src to the data-still value
-        if (state === "still") {
-          $(this).attr("src", results[i].images.fixed_height.url);
-          $(this).attr("data-state", "animate");
-        }
-        else {
-          $(this).attr("src", results[i].images.fixed_height_still.url);
-          $(this).attr("data-state", "still");
-        }
-      });
+      // $(document).on("click", ".sports", function() {
+      //   var state = $(this)
+      //   .attr({
+      //     "data-state-still-src": results[i].images.fixed_height_still.url,
+      //     "data-state-animate-src": results[i].images.fixed_height.url
+      // });
+      //   if (state === "still") {
+      //     $(this).attr("src", results[i].images.fixed_height.url);
+      //     $(this).attr("data-state", "animate");
+      //   }
+      //   else {
+      //     $(this).attr("src", results[i].images.fixed_height_still.url);
+      //     $(this).attr("data-state", "still");
+      //   }
+      // });
     });
 });
+}
+renderAjax();
 
 // 6. Add a form to your page takes the value from a user input box and adds it into your `topics` array. Then make a function call that takes each topic in the array remakes the buttons on the page.
 
-
-
-
-
-//  // This function handles events where one button is clicked
-//  $("#add-movie").on("click", function(event) {
-//    // Preventing the buttons default behavior when clicked (which is submitting a form)
-//    event.preventDefault();
-//    // This line grabs the input from the textbox
-//    //REVIEW OF CONCEPTS (below):
-//    // 1.	jQuery method .val() gets the current value of the 1st element in the set of matched elements; .val() method does not accept any arguments & is primariy used to get values of form elements such as input, select, & text area.
-//    // 2.	jQuery.trim(str),where str is the string to trim. $.trim() function removes all newlines, spaces (including non-breaking spaces), & tabs from beginning and end of supplied string. If whitespaces occur in middle of string, they are preserved.
-
-
-//    var movie = $("#movie-input").val().trim();
-
-//    // Adding the movie from the textbox to our array
-//    // REVIEW OF CONCEPTS (below)
-//    // 1. Javascript Array push() method adds new items to end of array and returns new length.
-
-//    movies.push(movie);
-
-//    // Calling renderButtons which handles the processing of our movie array
-//    renderButtons();
-
-//  });
-
-//  // Function for displaying the movie info
-//  // We're adding a click event listener to all elements with the class "movie"
-//  // We're adding the event listener to the document because it will work for dynamically generated elements
-//  // $(".movies").on("click") will only add listeners to elements that are on the page at that time
-//  $(document).on("click", ".movie", alertMovieName);
-
-//  // Calling the renderButtons function to display the intial buttons
-//  renderButtons();
+ 
+$("#add-sports").on("click", function(event) {
+// Preventing the buttons default behavior when clicked (which is submitting a form)
+  event.preventDefault();
+  var sportInput = $("#sports-input").val().trim();
+  topics.push(sportInput);
+  renderButtons();
+  renderAjax();
+  // $("#sports-input").empty();
+  });
