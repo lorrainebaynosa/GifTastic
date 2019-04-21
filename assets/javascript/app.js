@@ -59,6 +59,7 @@ $("button").on("click", function () {
       for (var i = 0; i < results.length; i++) {
         // Create a div for the gif
         var gifDiv = $("<div>");
+        gifDiv.addClass("gif");
         // 4. Under every gif, display its rating (PG, G, so on).This data is provided by the GIPHY API.
         // Storing the result item's rating
         var rating = results[i].rating;

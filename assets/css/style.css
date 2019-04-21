@@ -1,0 +1,81 @@
+@media(min-width: 768px){
+    .buttonsContainer, .formContainer, .gifsContainer {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        
+    }
+    }
+    
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Comic Sans MS; 
+        color: #777777;
+        font-size: 22px;
+        font-style: bold;
+    }
+    
+    .wrapper {
+        min-height: 100%;
+        margin-bottom: -60px;
+        text-align: left;
+        overflow: auto;
+    }
+    
+    header, .buttonsContainer {
+        font-size: 30px;
+        font-style: bold;
+        margin-top: 10px;
+        margin-left: 8px;
+    }
+    .gifsContainer {
+        margin-left: 25px;
+        max-height: 700px;
+        max-width: 1200px;
+        background: white;
+        padding: 3px
+    }
+    
+    .formContainer {
+        margin-left: 25px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        text-align: left;
+        padding: 5px; 
+        }
+
+    img {
+        width:225px;
+        height: 150px;
+        padding: 5px;
+    }
+
+    button, #add-sports {
+        background-color: blue;
+        font-family: Comic Sans MS;
+        width: 180px;
+        height: 40px;
+        font-size: 20px;
+        font-style: bold;
+        color: white;
+        margin-left: 5px;
+    }
+
+    #sports-input {
+        width: 200px;
+        height: 40px; 
+        font-size: 20px;
+        font-style: bold;
+        font-family: Comic Sans MS;
+    }
+
+    .gif {
+        display: inline-block;
+    }
+    
