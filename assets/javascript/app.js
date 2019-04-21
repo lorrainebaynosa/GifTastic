@@ -94,9 +94,9 @@ renderAjax();
 $("#add-sports").on("click", function (event) {
   // Preventing the buttons default behavior when clicked (which is submitting a form)
   event.preventDefault();
-  // $("#sports-input").empty("");
   var sportInput = $("#sports-input").val().trim();
   topics.push(sportInput);
   renderButtons();
   renderAjax();
+  $("#sports-input").val("");
 });
